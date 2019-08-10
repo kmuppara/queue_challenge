@@ -1,6 +1,6 @@
 package com.dbs.hacktron.queuechallenge.controller;
 
-public interface CommonController {
+public interface BaseController {
 
 	public String add();
 	public String remove();

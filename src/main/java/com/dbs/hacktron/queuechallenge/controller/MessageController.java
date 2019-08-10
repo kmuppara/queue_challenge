@@ -1,6 +1,6 @@
 package com.dbs.hacktron.queuechallenge.controller;
 
-public class MessageController implements CommonController{
+public class MessageController implements BaseController{
 
 	@Override
 	public String add() {
