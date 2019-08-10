@@ -1,6 +1,5 @@
 package com.dbs.hacktron.queuechallenge.component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -10,8 +9,6 @@ import com.dbs.hacktron.queuechallenge.vo.Queue;
 @Service
 public class QueueService implements BaseService {
 
-	List<Queue> queues = new ArrayList<>();
-
 	@Override
 	public String add(String qName, int maxSize) {
 		if (!isExists(qName)) {
@@ -20,13 +17,19 @@ public class QueueService implements BaseService {
 			return "Success";
 		} else
 			return "Failure";
-
 	}
 
 	@Override
-	public void remove(String qName) {
-		
-
+	public String remove(String qName) {
+		if (isExists(qName)) {
+			for (Queue q : queues) {
+				if (q.getQueueName() != null && q.getQueueName().equalsIgnoreCase(qName)) {
+					queues.remove(q);
+				}
+			}
+			return "Success";
+		} else
+			return "Failure";
 	}
 
 	@Override
@@ -36,13 +39,19 @@ public class QueueService implements BaseService {
 	}
 
 	private boolean isExists(String qName) {
-		
+
 		for (Queue q : queues) {
-			if (q.getQueueName()!=null && q.getQueueName().equalsIgnoreCase(qName)) {
+			if (q.getQueueName() != null && q.getQueueName().equalsIgnoreCase(qName)) {
 				return true;
 			}
 		}
 		return false;
+
+		/*
+		 * Object obj =
+		 * queues.stream().filter(p->p.getQueueName().equalsIgnoreCase(qName));
+		 * return obj!=null ? true : false;
+		 */
 	}
 
 }
