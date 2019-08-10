@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dbs.hacktron.queuechallenge.component.MessageService;
 import com.dbs.hacktron.queuechallenge.component.QueueService;
 import com.dbs.hacktron.queuechallenge.vo.Queue;
 
@@ -25,6 +26,9 @@ public class QueueController implements BaseController{
 	
 	@Autowired
 	QueueService queueService;
+	
+	@Autowired
+	MessageService messageService;
 
 	@Override
 	@PostMapping("/queue/")
