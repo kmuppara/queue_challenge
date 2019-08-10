@@ -39,11 +39,11 @@ public class QueueController implements BaseController{
 	}
 	
 	@Override
-	@DeleteMapping("/queue/{qName}")
-	public ResponseEntity<?> remove() {
+	@DeleteMapping("/queue/")
+	public ResponseEntity<?> remove(@RequestBody Queue queue) {
 		logger.info("In QueueController remove method() ");
-		
-		return new ResponseEntity<String>("", HttpStatus.OK);
+		String resp = queueService.remove(queue.getQueueName());
+		return new ResponseEntity<String>(resp, HttpStatus.OK);
 	}
 
 	@Override

@@ -10,6 +10,6 @@ public interface BaseService {
 	List<Queue> queues = new ArrayList<>();
 
 	public String add(String qName,int maxSize);
-	public void remove(String qName);
+	public String remove(String qName);
 	public List<Queue> browse();
 }
