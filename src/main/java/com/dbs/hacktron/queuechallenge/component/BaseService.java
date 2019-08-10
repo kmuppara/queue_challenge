@@ -1,8 +1,15 @@
 package com.dbs.hacktron.queuechallenge.component;
 
-public interface BaseService {
+import java.util.ArrayList;
+import java.util.List;
 
-	public void add(Object obj);
-	public void remove(Object obj);
-	public void browse(Object obj);
+import com.dbs.hacktron.queuechallenge.vo.Queue;
+
+public interface BaseService {
+	
+	List<Queue> queues = new ArrayList<>();
+
+	public String add(String qName,int maxSize);
+	public void remove(String qName);
+	public List<Queue> browse();
 }
