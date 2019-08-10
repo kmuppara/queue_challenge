@@ -17,11 +17,7 @@ public class MessageService implements BaseService{
 		return null;
 	}
 
-	@Override
-	public void remove(String qName) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public List<Queue> browse() {
@@ -75,5 +71,13 @@ public class MessageService implements BaseService{
 	
 	public List<Message> browseMessages(String qName) {
 		return getQueue(qName).getMessages();
+	}
+
+
+
+	@Override
+	public String remove(String qName) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
